@@ -1655,19 +1655,41 @@ body.dark-theme .cta-button:hover {
 
 .about-section .learn-more {
     display: inline-block;
-    padding: 10px 20px;
+    padding: 15px 30px;
     background: var(--primary-color);
     color: white;
     font-size: 16px;
     font-weight: 600;
     text-decoration: none;
-    border-radius: 25px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    border-radius: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    margin-top: 40px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.about-section .learn-more::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--secondary-color);
+    z-index: -1;
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    transition: transform 0.3s ease-out;
 }
 
 .about-section .learn-more:hover {
-    background: var(--secondary-color);
     transform: translateY(-3px);
+    box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+}
+
+.about-section .learn-more:hover::before {
+    transform: scaleX(1);
 }
 
 body.dark-theme .about-section h2,
@@ -2038,27 +2060,31 @@ header {
 
 /* About Header Section */
 .about-header {
-    padding: 120px 0 60px;
+    padding: 150px 0 80px;
     text-align: center;
-    background: var(--glass-background-light);
-}
-
-body.dark-theme .about-header {
-    background: var(--glass-background-dark);
+    position: relative;
 }
 
 .about-header h1 {
-    font-size: 42px;
-    margin-bottom: 20px;
+    font-size: 48px;
+    margin-bottom: 25px;
     color: var(--text-light);
 }
 
-.about-header p {
+body.dark-theme .about-header h1 {
+    color: var(--text-dark);
+}
+
+.about-header p.section-description {
     font-size: 18px;
-    line-height: 1.6;
-    max-width: 800px;
+    line-height: 1.8;
+    max-width: 900px;
     margin: 0 auto;
     color: var(--text-light);
+}
+
+body.dark-theme .about-header p.section-description {
+    color: var(--text-dark);
 }
 
 /* About Sections Common Styles */
@@ -2101,35 +2127,49 @@ body.dark-theme .about-header {
     padding: 0 20px;
 }
 
-.mission-vision div {
+.mission-box,
+.vision-box {
     background: var(--glass-background-light);
     padding: 40px;
     border-radius: 15px;
     border: 2px solid rgba(62, 207, 175, 0.2);
     box-shadow: 0 8px 32px rgba(62, 207, 175, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
 }
 
-.mission-vision div:hover {
-    transform: translateY(-5px);
-    border-color: var(--primary-color);
-    box-shadow: 0 12px 36px rgba(62, 207, 175, 0.2);
-}
-
-body.dark-theme .mission-vision div:hover {
-    border-color: var(--primary-color);
-    box-shadow: 0 12px 36px rgba(62, 207, 175, 0.15);
-}
-
-body.dark-theme .mission-vision div {
+body.dark-theme .mission-box,
+body.dark-theme .vision-box {
     background: var(--background-dark);
     border: 2px solid rgba(62, 207, 175, 0.15);
     box-shadow: 0 8px 32px rgba(62, 207, 175, 0.08);
 }
 
+.mission-box:hover,
+.vision-box:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+    box-shadow: 0 12px 36px rgba(62, 207, 175, 0.2);
+}
+
+body.dark-theme .mission-box:hover,
+body.dark-theme .vision-box:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 12px 36px rgba(62, 207, 175, 0.15);
+}
+
+.mission-icon,
+.vision-icon {
+    font-size: 36px;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    display: block;
+}
+
 .mission-vision h2 {
     font-size: 28px;
     margin-bottom: 20px;
+    margin-top: 0;
 }
 
 /* Values Grid */
@@ -2230,9 +2270,37 @@ body.dark-theme .value-card:hover {
 
 /* Journey Section */
 .journey-content {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
     padding: 0 20px;
+}
+
+.journey-content p {
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+/* About CTA Section */
+.about-cta {
+    text-align: center;
+    padding: 80px 0;
+}
+
+.about-cta h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: var(--text-light);
+}
+
+.about-cta p {
+    font-size: 18px;
+    color: var(--text-light);
+    margin-bottom: 30px;
+}
+
+body.dark-theme .about-cta h2,
+body.dark-theme .about-cta p {
+    color: var(--text-dark);
 }
 
 /* Why Choose Us Grid */
