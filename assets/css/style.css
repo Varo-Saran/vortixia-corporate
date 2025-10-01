@@ -520,7 +520,8 @@ select:focus {
     color: inherit;
     font-weight: 500;
     padding: 12px 15px 14px;
-    transition: color var(--animation-duration-short) var(--animation-ease);
+    transition: color var(--animation-duration-short) var(--animation-ease),
+        text-shadow var(--animation-duration-short) var(--animation-ease);
 }
 
 .nav-links a::after {
@@ -547,14 +548,12 @@ select:focus {
 /* Active Link State */
 .nav-links a.active::after {
     transform: scaleX(1);
-    box-shadow: 0 0 8px rgba(62, 207, 175, 0.6);
+    box-shadow: 0 0 10px rgba(62, 207, 175, 0.45);
 }
 
 .nav-links a.active {
     color: var(--primary-color);
-    background: linear-gradient(90deg, rgba(62, 207, 175, 0.12), transparent);
-    border-radius: 8px;
-    transition: background var(--animation-duration-short) var(--animation-ease);
+    text-shadow: 0 0 10px rgba(62, 207, 175, 0.55);
 }
 
 /* Dropdown Styles */
@@ -1558,55 +1557,94 @@ p.glassy-text {
 }
 
 /* CTA Button */
-.cta-button {
-    display: inline-block;
-    padding: 15px 30px;
-    background: var(--primary-color);
-    color: white;
-    text-decoration: none;
-    border-radius: 30px;
-    font-weight: 600;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-    margin-top: 20px;
+.cta-button,
+.apply-button,
+.submit-button {
     position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 0.95rem 2.75rem;
+    background: var(--primary-color);
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1.1;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
     overflow: hidden;
-    z-index: 1;
+    isolation: isolate;
+    box-shadow: 0 12px 28px rgba(62, 207, 175, 0.25);
+    transition: transform var(--animation-duration-short) var(--animation-ease),
+        box-shadow var(--animation-duration-short) var(--animation-ease),
+        color var(--animation-duration-short) var(--animation-ease);
+    will-change: transform, box-shadow;
 }
 
-.cta-button::before {
+.cta-button::before,
+.apply-button::before,
+.submit-button::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: var(--secondary-color);
-    z-index: -1;
+    inset: 0;
+    background: linear-gradient(90deg, var(--secondary-color), var(--secondary-color));
     transform: scaleX(0);
-    transform-origin: 0 50%;
-    transition: transform 0.3s ease-out;
+    transform-origin: left center;
+    transition: transform var(--animation-duration-medium) var(--animation-ease);
+    z-index: -1;
 }
 
-.cta-button:hover {
+.cta-button:hover,
+.cta-button:focus-visible,
+.apply-button:hover,
+.apply-button:focus-visible,
+.submit-button:hover,
+.submit-button:focus-visible {
+    color: #ffffff;
     transform: translateY(-3px);
-    box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 16px 36px rgba(62, 207, 175, 0.28);
 }
 
-.cta-button:hover::before {
+.cta-button:hover::before,
+.cta-button:focus-visible::before,
+.apply-button:hover::before,
+.apply-button:focus-visible::before,
+.submit-button:hover::before,
+.submit-button:focus-visible::before {
     transform: scaleX(1);
 }
 
-.cta-button:active {
-    transform: translateY(-1px);
-    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+.cta-button:focus-visible,
+.apply-button:focus-visible,
+.submit-button:focus-visible {
+    outline: none;
+    box-shadow: 0 18px 40px rgba(62, 207, 175, 0.35);
 }
 
-body.dark-theme .cta-button {
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+.cta-button:active,
+.apply-button:active,
+.submit-button:active {
+    transform: translateY(-1px) scale(0.99);
+    box-shadow: 0 10px 24px rgba(62, 207, 175, 0.22);
 }
 
-body.dark-theme .cta-button:hover {
-    box-shadow: 0 7px 14px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.1);
+body.dark-theme .cta-button,
+body.dark-theme .apply-button,
+body.dark-theme .submit-button {
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+}
+
+body.dark-theme .cta-button:hover,
+body.dark-theme .cta-button:focus-visible,
+body.dark-theme .apply-button:hover,
+body.dark-theme .apply-button:focus-visible,
+body.dark-theme .submit-button:hover,
+body.dark-theme .submit-button:focus-visible {
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
 }
 
 /* ==================== ABOUT SECTION STYLES ==================== */
@@ -1945,21 +1983,7 @@ body.dark-theme .team-member .description {
 }
 
 .team-section .cta-button {
-    display: inline-block;
-    padding: 15px 30px;
-    background: var(--primary-color);
-    color: white;
-    font-size: 16px;
-    font-weight: 600;
-    text-decoration: none;
-    border-radius: 30px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
     margin-top: 40px;
-}
-
-.team-section .cta-button:hover {
-    background: var(--secondary-color);
-    transform: translateY(-3px);
 }
 
 /* ==================== CONTACT SECTION ==================== */
@@ -1989,19 +2013,7 @@ body.dark-theme .contact-section p {
 }
 
 .contact-section .cta-button {
-    display: inline-block;
-    padding: 15px 30px;
-    background: var(--primary-color);
-    color: white;
-    text-decoration: none;
-    border-radius: 30px;
-    font-weight: 600;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.contact-section .cta-button:hover {
-    background: var(--secondary-color);
-    transform: translateY(-3px);
+    margin-top: 10px;
 }
 
 /* ==================== ABOUT PAGE STYLES ==================== */
@@ -3060,23 +3072,8 @@ body.light-theme .job-badge:hover {
 
 
 /* Apply Button */
-.apply-button {
-    display: inline-block;
-    padding: 12px 25px;
-    background: var(--primary-color);
-    color: white;
-    font-size: 16px;
-    font-weight: 600;
-    text-decoration: none;
-    border-radius: 25px;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 6px rgba(62, 207, 175, 0.2);
-}
-
-.apply-button:hover {
-    background: var(--secondary-color);
-    transform: translateY(-3px);
-    box-shadow: 0 6px 12px rgba(62, 207, 175, 0.3);
+.job-card .apply-button {
+    margin-top: 25px;
 }
 
 /* Job Card Hover Effects */
@@ -3148,23 +3145,8 @@ body.dark-theme .cta-description {
 }
 
 /* CTA Button */
-.cta-button {
-    display: inline-block;
-    padding: 15px 35px;
-    background: var(--primary-color);
-    color: white;
-    font-size: 16px;
-    font-weight: 600;
-    text-decoration: none;
-    border-radius: 30px;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 6px rgba(62, 207, 175, 0.2);
-}
-
-.cta-button:hover {
-    background: var(--secondary-color);
-    transform: translateY(-3px);
-    box-shadow: 0 6px 12px rgba(62, 207, 175, 0.3);
+.positions-cta .cta-button {
+    margin-top: 0;
 }
 
 /* Responsive Adjustments */
@@ -3292,25 +3274,8 @@ body.dark-theme .contact-form textarea {
 }
 
 /* Submit Button */
-.submit-button {
-    display: inline-block;
-    padding: 15px 35px;
-    /* Increased padding */
-    background: var(--primary-color);
-    color: white;
-    font-size: 16px;
-    font-weight: 600;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: all 0.3s ease;
+.contact-form .submit-button {
     margin-top: 10px;
-    /* Added margin */
-}
-
-.submit-button:hover {
-    background: var(--secondary-color);
-    transform: translateY(-3px);
 }
 
 /* Input placeholder colors */
@@ -3652,34 +3617,16 @@ body.dark-theme .form-input {
     margin-top: 40px;
 }
 
-.submit-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 15px 40px;
-    background: var(--primary-color);
-    color: white;
-    font-size: 18px;
-    font-weight: 600;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 6px rgba(62, 207, 175, 0.2);
-}
-
-.submit-button:hover {
-    background: var(--secondary-color);
-    transform: translateY(-3px);
-    box-shadow: 0 6px 12px rgba(62, 207, 175, 0.3);
+.form-actions .submit-button {
+    margin-top: 20px;
 }
 
 .submit-button i {
-    transition: transform 0.3s ease;
+    transition: transform var(--animation-duration-short) var(--animation-ease);
 }
 
-.submit-button:hover i {
+.submit-button:hover i,
+.submit-button:focus-visible i {
     transform: translateX(5px);
 }
 
@@ -4094,27 +4041,8 @@ body.dark-theme .file-upload-label small {
 }
 
 /* Submit Button */
-.submit-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 15px 40px;
-    background: var(--primary-color);
-    color: white;
-    font-size: 18px;
-    font-weight: 600;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 6px rgba(62, 207, 175, 0.2);
-}
-
-.submit-button:hover {
-    background: var(--secondary-color);
-    transform: translateY(-3px);
-    box-shadow: 0 6px 12px rgba(62, 207, 175, 0.3);
+.resume-submission-section .submit-button {
+    margin-top: 30px;
 }
 
 /* Hover Effects */
@@ -4286,12 +4214,30 @@ body.dark-theme .footer-nav-title {
 }
 
 .footer-links li a {
+    position: relative;
     text-decoration: none;
-    transition: all 0.3s ease;
     font-size: 15px;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 10px;
+    padding-bottom: 4px;
+    transition: color var(--animation-duration-short) var(--animation-ease),
+        opacity var(--animation-duration-short) var(--animation-ease);
+}
+
+.footer-links li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--primary-color);
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform var(--animation-duration-medium) var(--animation-ease),
+        opacity var(--animation-duration-short) var(--animation-ease);
+    opacity: 0;
 }
 
 body.light-theme .footer-links li a {
@@ -4304,10 +4250,21 @@ body.dark-theme .footer-links li a {
     opacity: 0.8;
 }
 
-.footer-links li a:hover {
+.footer-links li a:hover,
+.footer-links li a:focus-visible {
     color: var(--primary-color);
     opacity: 1;
-    transform: translateX(5px);
+}
+
+.footer-links li a:hover::after,
+.footer-links li a:focus-visible::after {
+    transform: scaleX(1);
+    opacity: 1;
+}
+
+.footer-links li a:focus-visible {
+    outline: none;
+    box-shadow: 0 6px 18px rgba(62, 207, 175, 0.18);
 }
 
 /* Social Icons */
@@ -4324,7 +4281,10 @@ body.dark-theme .footer-links li a {
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    transition: all 0.3s ease;
+    transition: transform var(--animation-duration-medium) var(--animation-ease),
+        box-shadow var(--animation-duration-medium) var(--animation-ease),
+        background-color var(--animation-duration-medium) var(--animation-ease),
+        border-color var(--animation-duration-medium) var(--animation-ease);
     text-decoration: none !important;
     /* Remove underline */
 }
@@ -4357,16 +4317,16 @@ body.dark-theme .social-icon i {
 .social-icon:hover,
 .social-icon:focus-visible {
     background: var(--primary-color);
-    transform: translateY(-5px) scale(1.05);
+    transform: translateY(-3px) scale(1.04);
     border-color: var(--primary-color);
-    box-shadow: 0 16px 32px rgba(62, 207, 175, 0.35);
+    box-shadow: 0 10px 24px rgba(62, 207, 175, 0.25);
 }
 
 .social-icon:hover i,
 .social-icon:focus-visible i {
     color: #ffffff;
     animation: social-bounce 0.6s var(--animation-ease) both;
-    text-shadow: 0 0 12px rgba(62, 207, 175, 0.6);
+    text-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
 }
 
 @keyframes social-bounce {
@@ -4375,7 +4335,7 @@ body.dark-theme .social-icon i {
     }
 
     50% {
-        transform: translateY(-6px) scale(1.08);
+        transform: translateY(-4px) scale(1.04);
     }
 
     100% {
