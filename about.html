@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Vortixia</title>
+
+    <!-- 1️⃣ CRITICAL: Theme script FIRST -->
+    <script>
+        (function () {
+            'use strict';
+
+            // Get theme preference
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const isDark = savedTheme === 'dark' || (savedTheme === null && prefersDark);
+            const themeClass = isDark ? 'dark-theme' : 'light-theme';
+
+            // Apply to HTML immediately (it exists now)
+            document.documentElement.classList.remove('no-js');
+            document.documentElement.classList.add('js', themeClass);
+
+            // Store for later
+            window.__INITIAL_THEME__ = isDark ? 'dark' : 'light';
+
+            // Also apply to body when it becomes available
+            // Using a MutationObserver to catch body as soon as it's created
+            const applyToBody = function () {
+                if (document.body) {
+                    document.body.classList.remove('light-theme', 'dark-theme');
+                    document.body.classList.add(themeClass);
+                }
+            };
+
+            // If body already exists, apply immediately
+            if (document.body) {
+                applyToBody();
+            } else {
+                // Otherwise, watch for body to be created
+                const observer = new MutationObserver(function (mutations) {
+                    if (document.body) {
+                        applyToBody();
+                        observer.disconnect();
+                    }
+                });
+                observer.observe(document.documentElement, { childList: true });
+            }
+        })();
+    </script>
+
+    <!-- 2️⃣ Critical styles SECOND -->
+    <!-- Enhanced critical styles - now also handles HTML element -->
+    <style>
+        /* Hide content until JS loads */
+        html.no-js body {
+            visibility: hidden;
+        }
+
+        html.js body {
+            visibility: visible;
+        }
+
+        /* Apply theme colors to HTML element (instant, zero flash) */
+        html.light-theme {
+            background-color: #FFFFFF;
+            color: #2D3748;
+        }
+
+        html.dark-theme {
+            background-color: #0A0E17;
+            color: #E2E8F0;
+        }
+
+        /* Also apply to body for consistency */
+        body.light-theme {
+            background-color: #FFFFFF;
+            color: #2D3748;
+        }
+
+        body.dark-theme {
+            background-color: #0A0E17;
+            color: #E2E8F0;
+        }
+
+        /* Ensure content is visible */
+        .page-content {
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: opacity, transform;
+        }
+
+        html.no-js .page-content,
+        body.page-loaded .page-content {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        body.page-transitioning .page-content {
+            opacity: 0;
+            transform: translateY(-12px);
+            pointer-events: none;
+        }
+    </style>
+
+    <!-- 3️⃣ Then your regular stylesheets -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+
+<body>
+    <header class="glassy-nav">
+        <div class="container">
+            <nav class="glassy-nav">
+                <div class="container nav-container">
+                    <a href="index.html" class="logo">VORTIXIA</a>
+
+                    <!-- Hamburger menu for mobile -->
+                    <button type="button" class="hamburger" aria-label="Menu">
+                        <span class="line"></span>
+                        <span class="line"></span>
+                        <span class="line"></span>
+                    </button>
+
+
+                    <!-- Navigation links -->
+                    <div class="nav-right">
+                        <ul class="nav-links">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="services.html">Services</a></li>
+                            <li><a href="projects.html">Projects</a></li>
+                            <li><a href="team.html">Team</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-trigger">Careers <i class="fas fa-chevron-down"></i></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="open-positions.html">Open Positions</a></li>
+                                    <li><a href="submit-resume.html">Submit Resume</a></li>
+                                    <li class="nested-dropdown">
+                                        <a href="#" class="nested-dropdown-trigger">
+                                            Applications
+                                            <i class="fas fa-chevron-right"></i>
+                                        </a>
+                                        <ul class="nested-dropdown-menu">
+                                            <li><a href="software-developer-application.html">Software Developer</a></li>
+                                            <li><a href="graphic-designer-application.html">Graphic Designer</a></li>
+                                            <li><a href="data-analyst-application.html">Data Analyst</a></li>
+                                            <li><a href="cybersecurity-specialist-application.html">Cybersecurity Specialist</a></li>
+                                            <li><a href="project-manager-application.html">Project Manager</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+
+                        <!-- Theme toggle switch -->
+                        <div class="theme-toggle">
+                            <div class="icon sun"><i class="fas fa-sun"></i></div>
+                            <div class="icon moon"><i class="fas fa-moon"></i></div>
+                            <div class="toggle-switch"></div>
+                        </div>
+                    </div>
+                </div>
+    </header>
+
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-nav-overlay">
+        <div class="mobile-nav-container">
+            <!-- Theme Toggle (Mobile) -->
+            <div class="mobile-theme-toggle">
+                <div class="icon sun"><i class="fas fa-sun"></i></div>
+                <div class="icon moon"><i class="fas fa-moon"></i></div>
+                <div class="toggle-switch"></div>
+            </div>
+
+            <!-- Primary Navigation -->
+            <nav class="mobile-primary-nav">
+                <ul class="mobile-menu-list">
+                    <li class="mobile-menu-item">
+                        <a href="index.html" class="mobile-menu-link">
+                            <i class="fas fa-home"></i>
+                            <span>Home</span>
+                        </a>
+                    </li>
+                    <li class="mobile-menu-item">
+                        <a href="about.html" class="mobile-menu-link">
+                            <i class="fas fa-info-circle"></i>
+                            <span>About</span>
+                        </a>
+                    </li>
+                    <li class="mobile-menu-item">
+                        <a href="services.html" class="mobile-menu-link">
+                            <i class="fas fa-cogs"></i>
+                            <span>Services</span>
+                        </a>
+                    </li>
+                    <li class="mobile-menu-item">
+                        <a href="projects.html" class="mobile-menu-link">
+                            <i class="fas fa-project-diagram"></i>
+                            <span>Projects</span>
+                        </a>
+                    </li>
+                    <li class="mobile-menu-item">
+                        <a href="team.html" class="mobile-menu-link">
+                            <i class="fas fa-users"></i>
+                            <span>Team</span>
+                        </a>
+                    </li>
+                    <li class="mobile-menu-item">
+                        <button class="mobile-menu-link mobile-submenu-trigger" data-submenu="careers">
+                            <i class="fas fa-briefcase"></i>
+                            <span>Careers</span>
+                            <i class="fas fa-chevron-right submenu-icon"></i>
+                        </button>
+                    </li>
+                    <li class="mobile-menu-item">
+                        <a href="contact.html" class="mobile-menu-link">
+                            <i class="fas fa-envelope"></i>
+                            <span>Contact</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Careers Submenu -->
+            <div class="mobile-submenu" data-submenu="careers">
+                <div class="submenu-header">
+                    <button class="mobile-back-button">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>Back to Menu</span>
+                    </button>
+                    <h3>Careers Hub</h3>
+                </div>
+                <ul class="mobile-menu-list">
+                    <li class="mobile-menu-item">
+                        <a href="open-positions.html" class="mobile-menu-link">
+                            <i class="fas fa-briefcase"></i>
+                            <span>Open Positions</span>
+                        </a>
+                    </li>
+                    <li class="mobile-menu-item">
+                        <a href="submit-resume.html" class="mobile-menu-link">
+                            <i class="fas fa-file-upload"></i>
+                            <span>Submit Resume</span>
+                        </a>
+                    </li>
+                    <li class="mobile-menu-item">
+                        <button class="mobile-menu-link mobile-submenu-trigger" data-submenu="applications">
+                            <i class="fas fa-laptop-code"></i>
+                            <span>Applications</span>
+                            <i class="fas fa-chevron-right submenu-icon"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Applications Nested Submenu -->
+            <div class="mobile-submenu" data-submenu="applications">
+                <div class="submenu-header">
+                    <button class="mobile-back-button">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>Back to Careers</span>
+                    </button>
+                    <h3>Career Applications</h3>
+                </div>
+                <ul class="mobile-menu-list">
+                    <li class="mobile-menu-item">
+                        <a href="software-developer-application.html" class="mobile-menu-link">
+                            <i class="fas fa-code"></i>
+                            <span>Software Developer</span>
+                        </a>
+                    </li>
+                    <li class="mobile-menu-item">
+                        <a href="graphic-designer-application.html" class="mobile-menu-link">
+                            <i class="fas fa-palette"></i>
+                            <span>Graphic Designer</span>
+                        </a>
+                    </li>
+                    <li class="mobile-menu-item">
+                        <a href="data-analyst-application.html" class="mobile-menu-link">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>Data Analyst</span>
+                        </a>
+                    </li>
+                    <li class="mobile-menu-item">
+                        <a href="cybersecurity-specialist-application.html" class="mobile-menu-link">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Cybersecurity Specialist</span>
+                        </a>
+                    </li>
+                    <li class="mobile-menu-item">
+                        <a href="project-manager-application.html" class="mobile-menu-link">
+                            <i class="fas fa-tasks"></i>
+                            <span>Project Manager</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Social Links -->
+            <div class="mobile-social-links">
+                <a href="#" aria-label="GitHub" class="social-link">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="#" aria-label="X (Twitter)" class="social-link">
+                    <i class="fa-brands fa-x-twitter"></i>
+                </a>
+                <a href="#" aria-label="LinkedIn" class="social-link">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="#" aria-label="Instagram" class="social-link">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <main class="page-content" id="main-content">
+        <!-- Introduction Section -->
+        <section class="about-header">
+            <h1>About Vortixia</h1>
+            <p>At Vortixia, we are passionate about delivering innovative digital solutions that empower businesses to
+                thrive in the modern world. Our team of experts specializes in software development, data analysis, and
+                graphic design, ensuring that every project we undertake is both impactful and visually stunning.</p>
+        </section>
+
+        <!-- Mission & Vision Section -->
+        <section class="about-section">
+            <div class="mission-vision">
+                <div>
+                    <h2>Our Mission</h2>
+                    <p>Our mission is to transform ideas into powerful digital experiences. We believe in the power of
+                        technology to drive growth, and we are committed to helping our clients achieve their goals
+                        through cutting-edge solutions.</p>
+                </div>
+                <div>
+                    <h2>Our Vision</h2>
+                    <p>We envision a world where businesses of all sizes can leverage technology to innovate, grow, and
+                        connect with their audiences in meaningful ways. By combining creativity, technical expertise,
+                        and data-driven insights, we aim to be the catalyst for digital transformation.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Values Section -->
+        <section class="about-section">
+            <h2>Our Values</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Innovation</h3>
+                    <p>We constantly push the boundaries of what's possible, embracing new technologies and creative
+                        approaches.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Integrity</h3>
+                    <p>We believe in transparency, honesty, and building trust with our clients and partners.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Collaboration</h3>
+                    <p>We work closely with our clients to understand their needs and deliver tailored solutions.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-award"></i>
+                    <h3>Excellence</h3>
+                    <p>We strive for excellence in everything we do, ensuring the highest quality in our work.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Journey Section -->
+        <section class="about-section">
+            <h2>Our Journey</h2>
+            <div class="journey-content">
+                <p>Founded in 2020, Vortixia started as a small team of tech enthusiasts with a shared passion for
+                    innovation. Over the years, we've grown into a trusted partner for businesses across various
+                    industries, helping them navigate the digital landscape and achieve their goals.</p>
+            </div>
+        </section>
+
+        <!-- Why Choose Us Section -->
+        <section class="about-section">
+            <h2>Why Choose Vortixia?</h2>
+            <div class="why-choose-grid">
+                <div class="why-choose-card">
+                    <i class="fas fa-thumbs-up"></i>
+                    <h3>Tailored Solutions</h3>
+                    <p>We don't believe in one-size-fits-all. Every solution we create is customized to meet your unique
+                        needs.</p>
+                </div>
+                <div class="why-choose-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Data-Driven Approach</h3>
+                    <p>We use data to inform every decision, ensuring that our solutions deliver measurable results.</p>
+                </div>
+                <div class="why-choose-card">
+                    <i class="fas fa-hands-helping"></i>
+                    <h3>End-to-End Support</h3>
+                    <p>From concept to execution, we're with you every step of the way, providing ongoing support and
+                        maintenance.</p>
+                </div>
+                <div class="why-choose-card">
+                    <i class="fas fa-trophy"></i>
+                    <h3>Proven Track Record</h3>
+                    <p>Our portfolio of successful projects speaks for itself. We've helped businesses achieve their
+                        goals time and time again.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="glassy-footer">
+        <div class="footer-content">
+            <!-- Brand Section -->
+            <div class="footer-brand">
+                <div class="footer-logo">VORTIXIA</div>
+                <p class="footer-description">Creating innovative digital solutions for tomorrow's challenges.</p>
+                <div class="social-links">
+                    <a href="#" class="social-icon" aria-label="GitHub" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="X (Twitter)" title="X (Twitter)">
+                        <i class="fa-brands fa-x-twitter"></i>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="LinkedIn" title="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="Instagram" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Navigation Grid -->
+            <div class="footer-nav-grid">
+                <!-- Company Links -->
+                <div class="footer-nav">
+                    <h3 class="footer-nav-title">Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="team.html">Our Team</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services Links -->
+                <div class="footer-nav">
+                    <h3 class="footer-nav-title">Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="services/software-developer.html">Software Development</a></li>
+                        <li><a href="services/data-analyst.html">Data Analysis</a></li>
+                        <li><a href="services/graphic-designer.html">Graphic Design</a></li>
+                        <li><a href="services/cyber-security.html">Cyber Security</a></li>
+                        <li><a href="services/project-manager.html">Project Management</a></li>
+                    </ul>
+                </div>
+
+                <!-- Careers Links -->
+                <div class="footer-nav">
+                    <h3 class="footer-nav-title">Careers</h3>
+                    <ul class="footer-links">
+                        <li><a href="open-positions.html">Open Positions</a></li>
+                        <li><a href="submit-resume.html">Submit Resume</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="copyright">© 2025 Vortixia. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/performance-optimizer.js"></script>
+    <script>
+        document.documentElement.classList.remove('no-js');
+    </script>
+</body>
+
+</html>
