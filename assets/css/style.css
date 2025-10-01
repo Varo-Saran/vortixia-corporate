@@ -267,6 +267,7 @@ body.dark-theme .glassy-nav {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
     [data-animate],
     .heading-word {
         transition-duration: 0s !important;
@@ -297,7 +298,6 @@ body.dark-theme .glassy-nav {
 .value-card:hover,
 .job-card:hover,
 .why-choose-card:hover,
-.footer-nav:hover,
 .career-card:hover,
 .contact-card:hover,
 .contact-info-card:hover,
@@ -312,7 +312,6 @@ body.dark-theme .team-member:hover,
 body.dark-theme .value-card:hover,
 body.dark-theme .job-card:hover,
 body.dark-theme .why-choose-card:hover,
-body.dark-theme .footer-nav:hover,
 body.dark-theme .career-card:hover,
 body.dark-theme .contact-card:hover,
 body.dark-theme .contact-info-card:hover,
@@ -1187,13 +1186,15 @@ a {
 
 /* Background Glow Effect */
 .mobile-social-links .social-link::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: rgba(62, 207, 175, 0.1);
-    border-radius: inherit;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 1;
+    background: rgba(62, 207, 175, 0.06);
+    /* reduced from stronger value */
+    filter: blur(4px);
+    /* smaller blur radius */
+    opacity: 0.55;
+    /* make glow less visible */
+    transform: scale(0.94);
+    /* slightly smaller base glow */
+    transition: opacity 180ms ease, transform 180ms ease, filter 180ms ease;
 }
 
 /* Light Theme Styles */
@@ -1215,7 +1216,26 @@ body.dark-theme .mobile-social-links .social-link i {
 }
 
 body.dark-theme .mobile-social-links .social-link::before {
-    background: rgba(62, 207, 175, 0.15);
+    background: rgba(62, 207, 175, 0.045);
+    /* lower for dark theme */
+}
+
+body.light-theme .mobile-social-links .social-link::before {
+    background: rgba(62, 207, 175, 0.06);
+    /* slightly higher for light theme */
+}
+
+/* Reduced Motion Preference */
+@media (prefers-reduced-motion: reduce) {
+
+    .social-icon,
+    .mobile-social-links .social-link::before,
+    .social-icon i {
+        animation: none !important;
+        transition: none !important;
+        transform: none !important;
+        box-shadow: none !important;
+    }
 }
 
 /* Hover Effects */
@@ -1225,8 +1245,11 @@ body.dark-theme .mobile-social-links .social-link::before {
 }
 
 .mobile-social-links .social-link:hover::before {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    opacity: 1;
+    opacity: 0.68;
+    /* slightly more visible on hover */
+    transform: scale(1.02);
+    /* much smaller scale change */
+    filter: blur(5px);
 }
 
 .mobile-social-links .social-link:hover i {
@@ -4227,15 +4250,36 @@ body.dark-theme .glassy-footer {
     padding-right: 20px;
 }
 
+/* Ensure the footer brand/logo is always visible and contrasts with both themes */
 .footer-logo {
-    font-size: 28px;
-    font-weight: 700;
-    margin-bottom: 15px;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    position: relative;
+    z-index: 3;
+    /* keep it above overlays/pseudo-elements */
     display: inline-block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    line-height: 1;
+    color: var(--primary-color);
+    /* visible accent by default */
+    mix-blend-mode: normal;
+    /* avoid blending that can hide text */
+    opacity: 1;
+    visibility: visible;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+}
+
+/* Theme-specific overrides for guaranteed contrast */
+body.light-theme .footer-logo {
+    color: var(--text-light);
+    /* dark text on light background */
+}
+
+body.dark-theme .footer-logo {
+    color: var(--text-dark);
+    /* light text on dark background */
 }
 
 .footer-description {
@@ -4304,7 +4348,13 @@ body.dark-theme .footer-links li a {
     opacity: 0.8;
 }
 
-.footer-links li a:hover {
+body.light-theme .footer-links li a:hover {
+    color: var(--primary-color);
+    opacity: 1;
+    transform: translateX(5px);
+}
+
+body.dark-theme .footer-links li a:hover {
     color: var(--primary-color);
     opacity: 1;
     transform: translateX(5px);
@@ -4355,29 +4405,31 @@ body.dark-theme .social-icon i {
 }
 
 .social-icon:hover,
+.social-icon:hover,
 .social-icon:focus-visible {
-    background: var(--primary-color);
-    transform: translateY(-5px) scale(1.05);
-    border-color: var(--primary-color);
-    box-shadow: 0 16px 32px rgba(62, 207, 175, 0.35);
+    box-shadow: 0 8px 20px rgba(62, 207, 175, 0.12);
+    /* much softer glow */
+    transform: translateY(-2px) scale(1.01);
+    /* subtle lift */
+    transition: transform 160ms var(--animation-ease), box-shadow 160ms var(--animation-ease);
 }
 
 .social-icon:hover i,
 .social-icon:focus-visible i {
-    color: #ffffff;
-    animation: social-bounce 0.6s var(--animation-ease) both;
-    text-shadow: 0 0 12px rgba(62, 207, 175, 0.6);
+    /* swap the original social-bounce for a smaller variant */
+    animation: social-bounce-small 0.36s var(--animation-ease) both;
 }
 
-@keyframes social-bounce {
+@keyframes social-bounce-small {
     0% {
         transform: translateY(0) scale(1);
     }
 
     50% {
-        transform: translateY(-6px) scale(1.08);
+        transform: translateY(-4px) scale(1.02);
     }
 
+    /* tiny amplitude */
     100% {
         transform: translateY(0) scale(1);
     }
