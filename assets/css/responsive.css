@@ -1928,3 +1928,118 @@
         }
     }
 }
+
+/* ==================== SERVICES PAGE RESPONSIVE ==================== */
+@media (max-width: 1200px) {
+    .services-hero .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+    }
+
+    .hero-copy h1 {
+        font-size: 42px;
+    }
+
+    .hero-copy p {
+        max-width: 100%;
+    }
+
+    .cta-card {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .cta-actions {
+        align-items: center;
+    }
+}
+
+@media (max-width: 992px) {
+    .hero-copy h1 {
+        font-size: 38px;
+    }
+
+    .overview-intro h2,
+    .services-grid-section .section-header h2 {
+        font-size: 34px;
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .services-hero {
+        padding: 120px 0 90px;
+    }
+
+    .hero-copy h1 {
+        font-size: 32px;
+    }
+
+    .hero-highlights {
+        gap: 12px;
+    }
+
+    .overview-intro h2 {
+        font-size: 30px;
+    }
+
+    .services-grid-section .section-header h2 {
+        font-size: 32px;
+    }
+
+    .cta-card {
+        padding: 40px 32px;
+    }
+
+    .cta-actions {
+        flex-direction: row;
+        justify-content: center;
+        gap: 12px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-copy h1 {
+        font-size: 28px;
+    }
+
+    .hero-copy p,
+    .overview-intro p,
+    .services-grid-section .section-header p,
+    .cta-copy p {
+        font-size: 16px;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+    }
+
+    .overview-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cta-actions {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 420px) {
+    .hero-partners {
+        padding: 20px;
+    }
+
+    .metric-card {
+        padding: 28px;
+    }
+
+    .service-card {
+        padding: 28px;
+    }
+
+    .cta-card {
+        padding: 32px 24px;
+    }
+}
