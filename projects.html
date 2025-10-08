@@ -113,7 +113,7 @@
     <link rel="stylesheet" href="assets/css/responsive.css">
 </head>
 
-<body>
+<body class="projects-page">
     <header class="glassy-nav">
         <div class="container">
             <nav class="glassy-nav">
@@ -322,12 +322,43 @@
     </div>
 
     <main class="page-content" id="main-content">
+        <!-- Projects Hero Section -->
+        <section class="projects-hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-badge">Latest Case Studies</div>
+                    <h1>Results-driven digital experiences crafted for ambitious teams.</h1>
+                    <p>From enterprise e-commerce ecosystems to immersive mobile products, we design and ship
+                        solutions that feel effortless to use and impossible to forget.</p>
+                    <div class="hero-metrics">
+                        <div class="metric">
+                            <span class="metric-value">92%</span>
+                            <span class="metric-label">Client retention</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">18+</span>
+                            <span class="metric-label">Industries served</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">120k</span>
+                            <span class="metric-label">Active users reached</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Projects Grid Section -->
         <section class="projects-grid-section">
             <div class="container">
-                <h2>Our Projects</h2>
-                <p class="section-description">Explore some of our recent work and see how we’ve helped businesses
-                    achieve their goals through innovative digital solutions.</p>
+                <div class="section-header">
+                    <div>
+                        <h2>Featured engagements</h2>
+                        <p class="section-description">Explore a selection of recent partnerships where strategy, design,
+                            and engineering came together to create measurable impact.</p>
+                    </div>
+                    <div class="section-tagline">Built with craft, scaled with confidence.</div>
+                </div>
                 <div class="projects-grid">
                     <!-- Project Card 1 -->
                     <div class="project-card">
@@ -335,12 +366,22 @@
                             <img src="assets/images/projects/project1.png" alt="Project 1"
                                 onerror="this.onerror=null;this.src='https://placehold.co/400x225/1a202c/ffffff?text=E-Commerce+Platform';">
                             <div class="project-image-overlay">
-                                <h3>E-Commerce Platform</h3>
+                                <div class="project-overlay-content">
+                                    <span class="project-category">Retail Transformation</span>
+                                    <h3>E-Commerce Platform</h3>
+                                    <span class="project-highlight">+35% conversion in 90 days</span>
+                                </div>
                             </div>
                         </div>
-                        <p>We developed a fully customized e-commerce platform for a retail client, featuring seamless
-                            payment integration and a user-friendly interface.</p>
-                        <a href="#" class="learn-more">View Project</a>
+                        <div class="project-content">
+                            <p>We developed a fully customized e-commerce platform for a retail client, featuring
+                                seamless payment integration and a personalized shopping experience across devices.</p>
+                            <div class="project-meta">
+                                <span class="meta-item"><i class="fas fa-industry"></i>Retail</span>
+                                <span class="meta-item"><i class="fas fa-chart-line"></i>Growth Strategy</span>
+                            </div>
+                            <a href="#" class="project-cta">View project <i class="fas fa-arrow-right"></i></a>
+                        </div>
                     </div>
 
                     <!-- Project Card 2 -->
@@ -349,12 +390,22 @@
                             <img src="assets/images/projects/project2.png" alt="Project 2"
                                 onerror="this.onerror=null;this.src='https://placehold.co/400x225/1a202c/ffffff?text=Data+Analytics+Dashboard';">
                             <div class="project-image-overlay">
-                                <h3>Data Analytics Dashboard</h3>
+                                <div class="project-overlay-content">
+                                    <span class="project-category">Intelligence &amp; Insights</span>
+                                    <h3>Data Analytics Dashboard</h3>
+                                    <span class="project-highlight">Realtime visibility</span>
+                                </div>
                             </div>
                         </div>
-                        <p>Created a data analytics dashboard for a financial services company, enabling real-time
-                            insights and decision-making.</p>
-                        <a href="#" class="learn-more">View Project</a>
+                        <div class="project-content">
+                            <p>Created a data analytics dashboard for a financial services company, enabling real-time
+                                scenario planning and board-ready reporting for every business unit.</p>
+                            <div class="project-meta">
+                                <span class="meta-item"><i class="fas fa-piggy-bank"></i>Financial Services</span>
+                                <span class="meta-item"><i class="fas fa-bolt"></i>Automation</span>
+                            </div>
+                            <a href="#" class="project-cta">View project <i class="fas fa-arrow-right"></i></a>
+                        </div>
                     </div>
 
                     <!-- Project Card 3 -->
@@ -363,12 +414,22 @@
                             <img src="assets/images/projects/project3.png" alt="Project 3"
                                 onerror="this.onerror=null;this.src='https://placehold.co/400x225/1a202c/ffffff?text=Mobile+App+Development';">
                             <div class="project-image-overlay">
-                                <h3>Mobile App Development</h3>
+                                <div class="project-overlay-content">
+                                    <span class="project-category">Product Innovation</span>
+                                    <h3>Mobile App Development</h3>
+                                    <span class="project-highlight">4.9★ app store rating</span>
+                                </div>
                             </div>
                         </div>
-                        <p>Designed and developed a mobile app for a fitness startup, offering workout tracking and
-                            personalized recommendations.</p>
-                        <a href="#" class="learn-more">View Project</a>
+                        <div class="project-content">
+                            <p>Designed and developed a mobile app for a fitness startup, offering adaptive workout
+                                coaching, habit tracking, and social engagement features.</p>
+                            <div class="project-meta">
+                                <span class="meta-item"><i class="fas fa-dumbbell"></i>Health &amp; Wellness</span>
+                                <span class="meta-item"><i class="fas fa-mobile-alt"></i>iOS &amp; Android</span>
+                            </div>
+                            <a href="#" class="project-cta">View project <i class="fas fa-arrow-right"></i></a>
+                        </div>
                     </div>
 
                     <!-- Project Card 4 -->
@@ -377,12 +438,22 @@
                             <img src="assets/images/projects/project4.png" alt="Project 4"
                                 onerror="this.onerror=null;this.src='https://placehold.co/400x225/1a202c/ffffff?text=Cybersecurity+Solution';">
                             <div class="project-image-overlay">
-                                <h3>Cybersecurity Solution</h3>
+                                <div class="project-overlay-content">
+                                    <span class="project-category">Risk Mitigation</span>
+                                    <h3>Cybersecurity Solution</h3>
+                                    <span class="project-highlight">Zero critical incidents</span>
+                                </div>
                             </div>
                         </div>
-                        <p>Implemented a robust cybersecurity solution for a healthcare provider, ensuring data
-                            protection and compliance.</p>
-                        <a href="#" class="learn-more">View Project</a>
+                        <div class="project-content">
+                            <p>Implemented a robust cybersecurity framework for a healthcare provider, ensuring
+                                continuous compliance and proactive threat detection.</p>
+                            <div class="project-meta">
+                                <span class="meta-item"><i class="fas fa-hospital"></i>Healthcare</span>
+                                <span class="meta-item"><i class="fas fa-shield-alt"></i>24/7 Monitoring</span>
+                            </div>
+                            <a href="#" class="project-cta">View project <i class="fas fa-arrow-right"></i></a>
+                        </div>
                     </div>
 
                     <!-- Project Card 5 -->
@@ -391,12 +462,22 @@
                             <img src="assets/images/projects/project5.png" alt="Project 5"
                                 onerror="this.onerror=null;this.src='https://placehold.co/400x225/1a202c/ffffff?text=Graphic+Design+Campaign';">
                             <div class="project-image-overlay">
-                                <h3>Graphic Design Campaign</h3>
+                                <div class="project-overlay-content">
+                                    <span class="project-category">Brand Systems</span>
+                                    <h3>Graphic Design Campaign</h3>
+                                    <span class="project-highlight">Global product launch</span>
+                                </div>
                             </div>
                         </div>
-                        <p>Created a comprehensive branding and graphic design campaign for a tech startup, including
-                            logos, brochures, and social media assets.</p>
-                        <a href="#" class="learn-more">View Project</a>
+                        <div class="project-content">
+                            <p>Created a comprehensive branding and graphic design campaign for a tech startup, spanning
+                                product storytelling, launch assets, and a modular design system.</p>
+                            <div class="project-meta">
+                                <span class="meta-item"><i class="fas fa-rocket"></i>Emerging Tech</span>
+                                <span class="meta-item"><i class="fas fa-brush"></i>Visual Identity</span>
+                            </div>
+                            <a href="#" class="project-cta">View project <i class="fas fa-arrow-right"></i></a>
+                        </div>
                     </div>
 
                     <!-- Project Card 6 -->
@@ -405,12 +486,22 @@
                             <img src="assets/images/projects/project6.png" alt="Project 6"
                                 onerror="this.onerror=null;this.src='https://placehold.co/400x225/1a202c/ffffff?text=Cloud+Migration';">
                             <div class="project-image-overlay">
-                                <h3>Cloud Migration</h3>
+                                <div class="project-overlay-content">
+                                    <span class="project-category">Platform Modernization</span>
+                                    <h3>Cloud Migration</h3>
+                                    <span class="project-highlight">40% cost reduction</span>
+                                </div>
                             </div>
                         </div>
-                        <p>Helped a logistics company migrate their infrastructure to the cloud, improving scalability
-                            and reducing costs.</p>
-                        <a href="#" class="learn-more">View Project</a>
+                        <div class="project-content">
+                            <p>Helped a logistics company migrate their infrastructure to the cloud, improving
+                                scalability, resilience, and real-time fleet coordination.</p>
+                            <div class="project-meta">
+                                <span class="meta-item"><i class="fas fa-shipping-fast"></i>Logistics</span>
+                                <span class="meta-item"><i class="fas fa-cloud-upload-alt"></i>Cloud Architecture</span>
+                            </div>
+                            <a href="#" class="project-cta">View project <i class="fas fa-arrow-right"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -425,6 +516,7 @@
             </div>
         </section>
     </main>
+
 
     <!-- Footer -->
     <footer class="glassy-footer">

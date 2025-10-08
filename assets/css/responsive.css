@@ -753,6 +753,14 @@
             grid-template-columns: repeat(3, 1fr);
             gap: 30px;
         }
+
+        body.projects-page .projects-hero {
+            padding: 120px 0 70px;
+        }
+
+        body.projects-page .project-card {
+            padding: 28px;
+        }
     }
 
     /* Tablets and Large Phones */
@@ -763,11 +771,24 @@
 
         .projects-grid {
             grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
+            gap: 28px;
         }
 
-        .project-card {
-            padding: 25px 20px;
+        body.projects-page .section-header {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        body.projects-page .projects-hero {
+            padding: 110px 0 60px;
+        }
+
+        body.projects-page .hero-metrics {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        body.projects-page .project-card {
+            padding: 28px;
         }
     }
 
@@ -787,11 +808,25 @@
             padding: 0 20px;
         }
 
-        .project-card {
+        body.projects-page .projects-hero {
+            padding: 100px 0 50px;
+        }
+
+        body.projects-page .hero-content {
+            gap: 24px;
+        }
+
+        body.projects-page .hero-metrics {
+            grid-template-columns: 1fr;
+            gap: 16px;
+            padding: 22px;
+        }
+
+        body.projects-page .project-card {
             width: 100%;
             max-width: none;
             margin: 0 auto;
-            padding: 30px;
+            padding: 26px;
         }
     }
 
@@ -814,8 +849,25 @@
             gap: 25px;
         }
 
-        .project-card {
-            padding: 25px;
+        body.projects-page .hero-badge {
+            font-size: 11px;
+            padding: 8px 14px;
+        }
+
+        body.projects-page .projects-hero h1 {
+            font-size: 2rem;
+        }
+
+        body.projects-page .projects-hero p {
+            font-size: 0.98rem;
+        }
+
+        body.projects-page .project-card {
+            padding: 24px;
+        }
+
+        body.projects-page .project-image {
+            margin: -6px -6px 18px;
         }
 
         .project-card h3 {
@@ -826,12 +878,20 @@
             font-size: 14px;
         }
 
+        body.projects-page .project-meta {
+            gap: 10px;
+        }
+
         .cta-section h2 {
             font-size: 24px;
         }
 
         .cta-section p {
             font-size: 15px;
+        }
+
+        body.projects-page .cta-section .container {
+            padding: 56px 28px;
         }
     }
 
@@ -851,6 +911,15 @@
 
         .project-card h3 {
             font-size: 18px;
+        }
+
+        body.projects-page .hero-metrics {
+            padding: 18px;
+        }
+
+        body.projects-page .project-cta {
+            width: 100%;
+            justify-content: center;
         }
     }
 
