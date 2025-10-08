@@ -322,58 +322,144 @@
     </div>
 
     <main class="page-content" id="main-content">
+        <!-- Contact Hero Section -->
+        <section class="contact-hero">
+            <div class="container contact-hero-content">
+                <div class="contact-hero-text">
+                    <span class="contact-kicker">Contact Vortixia</span>
+                    <h1>Let’s build something exceptional together</h1>
+                    <p>Share your vision and we’ll respond within one business day with the next steps to bring it to
+                        life. Our specialists tailor every conversation to your goals, challenges, and timeline.</p>
+                    <div class="contact-hero-highlights">
+                        <div class="highlight-card">
+                            <span class="highlight-title">Response Time</span>
+                            <strong>Under 24 hours</strong>
+                        </div>
+                        <div class="highlight-card">
+                            <span class="highlight-title">Client Satisfaction</span>
+                            <strong>4.9 / 5 rating</strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-hero-card">
+                    <div class="card-header">
+                        <h3>Prefer a direct introduction?</h3>
+                        <p>Choose the channel that works best for you and we’ll connect you with the right expert.</p>
+                    </div>
+                    <ul class="contact-hero-list">
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <span>Email us at</span>
+                                <a href="mailto:varosaran@gmail.com">varosaran@gmail.com</a>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <span>Call our consultants</span>
+                                <a href="tel:+94777275526">+94 777 275 526</a>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-location-dot"></i>
+                            <div>
+                                <span>Visit our studio</span>
+                                <a href="https://www.google.com/maps/search/?api=1&query=Kalubowila,Colombo,Sri+Lanka" target="_blank" rel="noopener">Kalubowila, Colombo</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
         <!-- Contact Form Section -->
         <section class="contact-form-section">
             <div class="container">
-                <h2>Get In Touch</h2>
-                <p class="section-description">We’d love to hear from you! Whether you have a question, a project idea,
-                    or just want to say hello, feel free to reach out.</p>
-                <form action="#" method="POST" class="contact-form">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" placeholder="Your Email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <input type="text" id="subject" name="subject" placeholder="Subject" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="submit-button">Send Message</button>
-                </form>
+                <div class="contact-section-header">
+                    <span class="contact-kicker">Get in touch</span>
+                    <h2>Tell us about your idea</h2>
+                    <p class="section-description">We’d love to hear from you! Whether you have a question, a project
+                        idea, or just want to say hello, let us know how we can help.</p>
+                </div>
+                <div class="contact-layout">
+                    <form action="#" method="POST" class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-button">Send Message</button>
+                    </form>
+                    <aside class="contact-details-card">
+                        <h3>What happens next?</h3>
+                        <p>Our team reviews every request carefully. A dedicated strategist will be in touch to learn
+                            more and share a tailored roadmap.</p>
+                        <div class="contact-detail">
+                            <i class="fas fa-user-check"></i>
+                            <div>
+                                <strong>Discovery Call</strong>
+                                <span>We clarify objectives, scope, and success metrics.</span>
+                            </div>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="fas fa-diagram-project"></i>
+                            <div>
+                                <strong>Custom Proposal</strong>
+                                <span>Receive an actionable plan with transparent timelines.</span>
+                            </div>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="fas fa-handshake"></i>
+                            <div>
+                                <strong>Kickoff Support</strong>
+                                <span>We assemble the right experts to get started immediately.</span>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
             </div>
         </section>
 
         <!-- Contact Information Section -->
-        <div class="contact-info-grid">
-            <!-- Email -->
-            <div class="contact-info-card" onclick="window.location.href='mailto:varosaran@gmail.com'">
-                <i class="fas fa-envelope"></i>
-                <h3>Email</h3>
-                <p>varosaran@gmail.com</p>
-            </div>
+        <section class="contact-info-showcase">
+            <div class="container">
+                <div class="contact-info-grid">
+                    <!-- Email -->
+                    <div class="contact-info-card" onclick="window.location.href='mailto:varosaran@gmail.com'">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Email</h3>
+                        <p>varosaran@gmail.com</p>
+                    </div>
 
-            <!-- Phone -->
-            <div class="contact-info-card" onclick="window.location.href='tel:+94777275526'">
-                <i class="fas fa-phone"></i>
-                <h3>Phone</h3>
-                <p>+94 777 275 526</p>
-            </div>
+                    <!-- Phone -->
+                    <div class="contact-info-card" onclick="window.location.href='tel:+94777275526'">
+                        <i class="fas fa-phone"></i>
+                        <h3>Phone</h3>
+                        <p>+94 777 275 526</p>
+                    </div>
 
-            <!-- Address -->
-            <div class="contact-info-card"
-                onclick="window.location.href='https://www.google.com/maps/search/?api=1&query=Kalubowila,Colombo,Sri+Lanka'">
-                <i class="fas fa-map-marker-alt"></i>
-                <h3>Address</h3>
-                <p>Kalubowila, Colombo, Sri Lanka</p>
+                    <!-- Address -->
+                    <div class="contact-info-card"
+                        onclick="window.location.href='https://www.google.com/maps/search/?api=1&query=Kalubowila,Colombo,Sri+Lanka'">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>Address</h3>
+                        <p>Kalubowila, Colombo, Sri Lanka</p>
+                    </div>
+                </div>
             </div>
-        </div>
+        </section>
 
         <!-- Call to Action Section -->
         <section class="cta-section">

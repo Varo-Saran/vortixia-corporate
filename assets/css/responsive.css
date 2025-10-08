@@ -1806,204 +1806,211 @@
 
     /* ==================== CONTACT PAGE RESPONSIVE STYLES ==================== */
 
-    /* Large Desktops and TVs */
     @media screen and (min-width: 1441px) {
-        .contact-form-section h2 {
-            font-size: 48px;
+        .contact-hero {
+            padding: 180px 0 150px;
         }
 
-        .contact-form {
-            max-width: 800px;
-            padding: 60px;
+        .contact-hero-text h1 {
+            font-size: 64px;
         }
 
-        .contact-info-grid {
-            max-width: 1200px;
-            gap: 40px;
-        }
-    }
-
-    /* Desktops and Laptops */
-    @media screen and (max-width: 1440px) and (min-width: 1201px) {
-        .contact-form-section h2 {
-            font-size: 42px;
-        }
-
-        .contact-form {
-            max-width: 700px;
-            padding: 50px;
-        }
-
-        .contact-info-grid {
-            gap: 35px;
-        }
-    }
-
-    /* Small Laptops and Large Tablets */
-    @media screen and (max-width: 1200px) and (min-width: 993px) {
-        .contact-form-section h2 {
-            font-size: 38px;
-        }
-
-        .contact-form {
-            max-width: 600px;
-            padding: 40px;
-        }
-
-        .contact-info-grid {
-            gap: 30px;
-        }
-    }
-
-    /* Tablets and Large Phones */
-    @media screen and (max-width: 992px) and (min-width: 769px) {
         .contact-form-section {
-            padding: 80px 0;
+            padding: 140px 0 130px;
         }
 
-        .contact-form-section h2 {
-            font-size: 34px;
+        .contact-form,
+        .contact-details-card {
+            padding: 56px;
+        }
+    }
+
+    @media screen and (max-width: 1440px) and (min-width: 1201px) {
+        .contact-hero {
+            padding: 150px 0 120px;
         }
 
-        .contact-form {
-            max-width: 500px;
-            padding: 35px;
+        .contact-layout {
+            gap: 52px;
+        }
+
+        .contact-form,
+        .contact-details-card {
+            padding: 48px;
+        }
+    }
+
+    @media screen and (max-width: 1200px) and (min-width: 993px) {
+        .contact-hero-content {
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            gap: 48px;
+        }
+
+        .contact-form,
+        .contact-details-card {
+            padding: 42px;
+        }
+
+        .contact-info-grid {
+            gap: 28px;
+        }
+    }
+
+    @media screen and (max-width: 992px) and (min-width: 769px) {
+        .contact-hero {
+            padding: 140px 0 100px;
+        }
+
+        .contact-hero-content {
+            grid-template-columns: 1fr;
+            gap: 48px;
+        }
+
+        .contact-hero-card {
+            max-width: 520px;
+        }
+
+        .contact-section-header {
+            margin-bottom: 60px;
+        }
+
+        .contact-layout {
+            grid-template-columns: 1fr;
+            gap: 40px;
         }
 
         .contact-info-grid {
             grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
-            padding: 0 30px;
-        }
-
-        .contact-info-card {
-            padding: 30px 20px;
+            gap: 28px;
         }
     }
 
-    /* Medium-sized Phones */
     @media screen and (max-width: 768px) and (min-width: 577px) {
+        .contact-hero {
+            padding: 120px 0 90px;
+        }
+
+        .contact-hero-text h1 {
+            font-size: 40px;
+        }
+
+        .contact-hero-highlights {
+            gap: 18px;
+        }
+
+        .highlight-card {
+            flex: 1 1 220px;
+        }
+
         .contact-form-section {
-            padding: 70px 0;
+            padding: 100px 0 90px;
         }
 
-        .contact-form-section h2 {
-            font-size: 30px;
+        .contact-form,
+        .contact-details-card {
+            padding: 36px;
         }
 
-        .contact-form-section .section-description {
-            font-size: 16px;
-            padding: 0 20px;
-        }
-
-        .contact-form {
-            max-width: 100%;
-            padding: 30px;
-            margin: 0 20px;
-        }
-
-        .contact-info-grid {
-            grid-template-columns: 1fr;
-            gap: 25px;
-            padding: 0 20px;
+        .contact-info-showcase {
+            padding: 90px 0 100px;
         }
     }
 
-    /* Small Phones */
     @media screen and (max-width: 576px) {
+        .contact-hero {
+            padding: 110px 0 80px;
+        }
+
+        .contact-hero-content {
+            grid-template-columns: 1fr;
+            gap: 36px;
+        }
+
+        .contact-hero-text h1 {
+            font-size: 34px;
+        }
+
+        .contact-hero-text p {
+            font-size: 16px;
+        }
+
+        .contact-hero-highlights {
+            gap: 16px;
+        }
+
+        .highlight-card {
+            min-width: 100%;
+            padding: 18px 20px;
+        }
+
+        .contact-hero-card {
+            padding: 30px 26px;
+        }
+
+        .contact-hero-list li {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .contact-hero-list li a {
+            font-size: 17px;
+        }
+
         .contact-form-section {
-            padding: 60px 0;
+            padding: 90px 0 80px;
         }
 
-        .contact-form-section h2 {
-            font-size: 28px;
-            padding: 0 15px;
+        .contact-section-header {
+            margin-bottom: 50px;
         }
 
-        .contact-form-section .section-description {
-            font-size: 15px;
-            padding: 0 15px;
+        .contact-form,
+        .contact-details-card {
+            padding: 32px 26px;
+            border-radius: 18px;
         }
 
-        .contact-form {
-            padding: 25px;
-            margin: 0 15px;
-        }
-
-        .contact-form label {
-            font-size: 14px;
-            margin-bottom: 6px;
-        }
-
-        .contact-form input,
-        .contact-form textarea {
-            font-size: 14px;
-            padding: 10px;
+        .contact-layout {
+            grid-template-columns: 1fr;
+            gap: 32px;
         }
 
         .submit-button {
-            font-size: 16px;
-            padding: 12px 24px;
             width: 100%;
         }
 
+        .contact-info-showcase {
+            padding: 80px 0 90px;
+        }
+
         .contact-info-grid {
-            padding: 0 15px;
-            gap: 20px;
+            gap: 24px;
         }
 
         .contact-info-card {
-            padding: 25px 20px;
+            padding: 28px 24px;
+            border-radius: 20px;
         }
 
-        .contact-info-card h3 {
+        .cta-section {
+            padding: 90px 0 100px;
+        }
+    }
+
+    @media screen and (max-width: 420px) {
+        .contact-hero-text h1 {
+            font-size: 30px;
+        }
+
+        .contact-hero-card h3,
+        .contact-details-card h3 {
             font-size: 20px;
         }
 
-        .contact-info-card p {
-            font-size: 14px;
+        .contact-detail {
+            flex-direction: column;
         }
     }
-
-    /* Very Small Phones */
-    @media screen and (max-width: 320px) {
-        .contact-form-section h2 {
-            font-size: 24px;
-        }
-
-        .contact-form-section .section-description {
-            font-size: 14px;
-        }
-
-        .contact-form {
-            padding: 20px;
-        }
-
-        .contact-form label {
-            font-size: 13px;
-        }
-
-        .contact-form input,
-        .contact-form textarea {
-            font-size: 13px;
-            padding: 8px;
-        }
-
-        .submit-button {
-            font-size: 14px;
-            padding: 10px 20px;
-        }
-
-        .contact-info-card {
-            padding: 20px 15px;
-        }
-
-        .contact-info-card h3 {
-            font-size: 18px;
-        }
-    }
-}
-
 /* ==================== SERVICES PAGE RESPONSIVE ==================== */
 @media (max-width: 1200px) {
     .services-hero .hero-grid {
