@@ -450,74 +450,117 @@
 /* Large screens (desktops) */
 @media screen and (min-width: 1200px) {
     .about-header {
-        padding: 150px 0 80px;
-    }
-
-    .about-header h1 {
-        font-size: 48px;
+        padding: 190px 0 150px;
     }
 
     .mission-vision {
-        gap: 60px;
+        gap: 48px;
     }
 }
 
 /* Medium screens (tablets and small desktops) */
 @media screen and (max-width: 1199px) and (min-width: 768px) {
     .about-header {
-        padding: 120px 0 60px;
+        padding: 150px 0 120px;
     }
 
-    .about-header h1 {
-        font-size: 40px;
+    .about-hero {
+        grid-template-columns: 1fr;
+    }
+
+    .about-hero__card {
+        max-width: 540px;
+        margin: 0 auto;
     }
 
     .mission-vision {
-        gap: 40px;
+        gap: 32px;
     }
 
     .values-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .cta-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-cta .cta-button {
+        align-self: center;
     }
 }
 
 /* Small screens (mobile devices) */
 @media screen and (max-width: 767px) {
     .about-header {
-        padding: 100px 0 40px;
+        padding: 120px 0 100px;
     }
 
-    .about-header h1 {
-        font-size: 32px;
-    }
-
-    .about-header p {
-        font-size: 16px;
-    }
-
-    .mission-vision {
+    .about-hero {
         grid-template-columns: 1fr;
-        gap: 30px;
+        gap: 40px;
+    }
+
+    .about-hero__content h1 {
+        font-size: 2.4rem;
+    }
+
+    .about-hero__highlights {
+        gap: 8px;
+    }
+
+    .highlight-chip {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .about-hero__card {
+        margin: 0 auto;
+    }
+
+    .section-intro {
+        margin-bottom: 40px;
     }
 
     .values-grid {
         grid-template-columns: 1fr;
     }
 
-    .team-grid {
+    .journey-timeline {
+        padding-left: 16px;
+    }
+
+    .journey-timeline::before {
+        left: 8px;
+    }
+
+    .timeline-item {
+        grid-template-columns: 1fr;
+        padding-left: 16px;
+    }
+
+    .timeline-marker {
+        margin-left: -24px;
+    }
+
+    .cta-content {
+        flex-direction: column;
+        padding: 32px 28px;
+        text-align: center;
+    }
+
+    .cta-copy h2 {
+        font-size: 1.9rem;
+    }
+
+    .why-choose-grid {
         grid-template-columns: 1fr;
     }
 
-    .about-section h2 {
-        font-size: 28px;
-    }
-
-    .about-section h3 {
-        font-size: 22px;
-    }
-
-    .about-section p {
-        font-size: 16px;
+    .about-cta .cta-button {
+        width: 100%;
+        justify-content: center;
     }
 }
 
